@@ -1,13 +1,12 @@
 #pragma once
 #include <string>
 #include <vector>
-
-using namespace std;
+#include "stdafx.h"
 
 class Node
 {
 public:
-	Node( const Node* aRoot, const string* aTag, const string* aTagContent, const string* anId);
+	Node( Node* aRoot, string* aTag, string* aTagContent, string* anId);
 	~Node();
 
 // Inlile getters to speed up module a bit
