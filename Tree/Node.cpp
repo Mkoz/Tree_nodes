@@ -10,3 +10,16 @@ Node::Node(Node* aRoot, string* aTag, string* aTagContent, string* anId) : root_
 Node::~Node()
 {
 }
+
+void Node::addChild(Node * aChild)
+{
+	childList_Node.push_back(aChild);
+}
+
+void Node::print_child()
+{
+	for (auto it = childList_Node.begin(); it != childList_Node.end(); it++)
+	{
+		PRINT << this->get_id() << " - Child: " << *it << " + " << ((Node*)*it)->get_id() << endl;
+	}
+}
