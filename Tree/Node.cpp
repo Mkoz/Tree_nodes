@@ -11,7 +11,7 @@ Node::~Node()
 {
 }
 
-void Node::addChild(Node * aChild)
+void Node::add_child(Node * aChild)
 {
 	childList_Node.push_back(aChild);
 }
@@ -22,4 +22,12 @@ void Node::print_child()
 	{
 		PRINT << this->get_id() << " - Child: " << *it << " + " << ((Node*)*it)->get_id() << endl;
 	}
+}
+
+void Node::print_node()
+{
+	PRINT << "#################### " << this->get_id() << " ####################" << endl;
+	PRINT << "TAG: " << this->get_tag() << "; Tag content: " << this->get_tagContent() << ";" << endl;
+	this->print_child();
+	PRINT << "########################################" << endl;
 }

@@ -20,9 +20,10 @@ int main()
 		string chTagC = "for child<" + to_string(i) + ">";
 		string chId = "root.child" + to_string(i);
 		//PRINT << "chTag: " << chTag << endl;
-		tmpNode->addChild(new Node(tmpNode, &chTag, &chTagC, &chId));
+		tmpNode->add_child(new Node(tmpNode, &chTag, &chTagC, &chId));
 	}
-	tmpNode->print_child();
+	//tmpNode->print_child();
+	tmpNode->print_node();
 	system("pause");
 	return 0;
 }

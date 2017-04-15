@@ -16,8 +16,12 @@ public:
 	inline string get_id() { return this->id_Node; };
 	inline vector<Node*>::iterator get_childList() { return this->childList_Node.begin(); };
 
-	void addChild(Node* aChild);
+	void add_child(Node* aChild);
+
+// Print functions
 	void print_child();
+	void print_node();
+
 
 protected:
 	Node* root_Node;
