@@ -14,11 +14,12 @@ public:
 	inline string get_tag() { return this->tag_Node; };
 	inline string get_tagContent() { return this->tagContent_Node; };
 	inline string get_id() { return this->id_Node; };
-	inline vector<Node*>::iterator get_childList() { return this->childList_Node.begin(); };
+	inline vector<Node*>* get_childList() { return &(this->childList_Node); };
 
+// Setter definitions
 	void add_child(Node* aChild);
 
-// Print functions
+// Print definitions
 	void print_child();
 	void print_node();
 
