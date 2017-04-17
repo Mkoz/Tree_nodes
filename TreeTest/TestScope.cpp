@@ -16,11 +16,11 @@ namespace TreeTest
 		TEST_METHOD(CheckCompletnesOfCreatedNodes)
 		{
 
-			cout << "aaaaaaaaaaaa" << endl;
+			cout << "aaaaaaaaaaa a" << endl;
 			Node* testNode = CREATE_ROOT();
 			testNode->print_node();
 			CREATE_CHILDS(8, testNode);
-
+			PRINT_TO_FILE("aaa", "bbb", "ccc");
 			Assert::AreEqual(1,1);
 		}
 	};
