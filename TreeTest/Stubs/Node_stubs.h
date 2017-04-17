@@ -16,19 +16,24 @@ Node* CREATE_CHILDS(unsigned int aNumberOfChalds, Node* aRoot);
 
 //Print section
 
-template <typename... T, typename ARG>
-void PRINT_TO_FILE(ARG agr, const T&... tail)
+template <typename T>
+void PRINT_TO_FILE(const T arg)
 {
-	ofstream out("D:\\C++\Tree\test.log");
+	ofstream out;
+	out.open("D:\\C++\\Tree\\test.log", ios::app);
 	if (!out)
 	{
 		Assert::Fail();
 	}
 
-	out << 10 << " " << 123.23 << endl;
-	out << "This is a short text file" << endl;
-	out.close();
+	out << arg << endl ;
+
+	/*FILE* f = fopen("D:\\C++\\Tree\\test.log", "w");
+	fputs("fputs", f);
+	fclose(f);*/
 };
 
+// cout redirection for verified object
 #define REDIRECT_COUT std::ostringstream out; std::streambuf* orig_buf(std::cout.rdbuf(out.rdbuf()));
-
+#define GET_COUT std::cout.rdbuf(orig_buf);
+#define COUT out.str()
