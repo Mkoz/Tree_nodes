@@ -9,13 +9,15 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace TreeTest
 {
-	TEST_CLASS(UnitTest1)
+
+	TEST_CLASS(NodeTest)
 	{
 	public:
 
 		TEST_METHOD(CheckCompletnesOfCreatedNodes)
 		{
 
+			DELETE_LOG_FILE
 			REDIRECT_COUT
 			Node* testNode = CREATE_ROOT();
 			testNode->print_node();

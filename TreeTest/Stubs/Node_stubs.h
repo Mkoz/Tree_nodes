@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 
+static char* logFile = "D:\\C++\\Tree\\test.log";
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 //Create section
@@ -20,7 +21,7 @@ template <typename T>
 void PRINT_TO_FILE(const T arg)
 {
 	ofstream out;
-	out.open("D:\\C++\\Tree\\test.log", ios::app);
+	out.open(logFile, ios::app);
 	if (!out)
 	{
 		Assert::Fail();
@@ -33,7 +34,10 @@ void PRINT_TO_FILE(const T arg)
 	fclose(f);*/
 };
 
+#define DELETE_LOG_FILE remove(logFile);
+
 // cout redirection for verified object
 #define REDIRECT_COUT std::ostringstream out; std::streambuf* orig_buf(std::cout.rdbuf(out.rdbuf()));
 #define GET_COUT std::cout.rdbuf(orig_buf);
 #define COUT out.str()
+
