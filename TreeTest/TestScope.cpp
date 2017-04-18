@@ -29,6 +29,8 @@ namespace TreeTest
 			testNode->print_node();
 			GET_COUT
 			PRINT_TO_FILE(COUT);
+
+			Assert::AreEqual(testNode->get_tag().c_str(),"<root>");
 			Assert::AreEqual(1,1);
 		}
 	};

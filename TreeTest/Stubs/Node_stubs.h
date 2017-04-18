@@ -7,10 +7,18 @@
 
 static char* logFile = "D:\\C++\\Tree\\test.log";
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
+static string chTag;
+static string chTagC;
+static string chId;
+static string rootTag = "<root>";
+static string rootTagC = "for root";
+static string rootId = "root";
+
 
 //Create section
 Node* CREATE_ROOT();
 Node* CREATE_CHILDS(unsigned int aNumberOfChalds, Node* aRoot);
+void construct_child(unsigned int * aCaunter);
 
 //Check section
 
@@ -37,7 +45,10 @@ void PRINT_TO_FILE(const T arg)
 #define DELETE_LOG_FILE remove(logFile);
 
 // cout redirection for verified object
-#define REDIRECT_COUT static std::ostringstream out;static std::streambuf* orig_buf(std::cout.rdbuf(out.rdbuf()));
 #define GET_COUT std::cout.rdbuf(orig_buf);
 #define COUT out.str()
+
+// Check section
+void CHECK_ROOT(Node* aNode);
+void CHECK_CHILDS(Node* aNode);
 
