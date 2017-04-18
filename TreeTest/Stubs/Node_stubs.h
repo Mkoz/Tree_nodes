@@ -37,7 +37,7 @@ void PRINT_TO_FILE(const T arg)
 #define DELETE_LOG_FILE remove(logFile);
 
 // cout redirection for verified object
-#define REDIRECT_COUT std::ostringstream out; std::streambuf* orig_buf(std::cout.rdbuf(out.rdbuf()));
+#define REDIRECT_COUT static std::ostringstream out;static std::streambuf* orig_buf(std::cout.rdbuf(out.rdbuf()));
 #define GET_COUT std::cout.rdbuf(orig_buf);
 #define COUT out.str()
 

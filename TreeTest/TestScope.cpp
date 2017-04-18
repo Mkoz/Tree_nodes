@@ -10,6 +10,12 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 namespace TreeTest
 {
 
+	TEST_MODULE_INITIALIZE(ModuleInitializer)
+	{
+		Logger::WriteMessage("In Module Initializer\n");
+		DELETE_LOG_FILE
+	}
+
 	TEST_CLASS(NodeTest)
 	{
 	public:
@@ -17,8 +23,6 @@ namespace TreeTest
 		TEST_METHOD(CheckCompletnesOfCreatedNodes)
 		{
 
-			DELETE_LOG_FILE
-			REDIRECT_COUT
 			Node* testNode = CREATE_ROOT();
 			testNode->print_node();
 			CREATE_CHILDS(8, testNode);
