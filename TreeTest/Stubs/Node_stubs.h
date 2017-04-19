@@ -24,7 +24,7 @@ void construct_child(unsigned int * aCaunter);
 
 
 //Print section
-
+#define TEST_PRINT cout << __FILE__ << ":" << __LINE__ << "->[" << __FUNCTION__ << "]  "
 template <typename T>
 void PRINT_TO_FILE(const T arg)
 {

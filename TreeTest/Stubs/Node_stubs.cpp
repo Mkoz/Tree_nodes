@@ -39,6 +39,21 @@ void CHECK_ROOT(Node* aNode)
 	Assert::IsNull(aNode->get_root());
 
 }
+
+void CHECK_CHILDS(Node* aNode)
+{
+	auto childList = aNode->get_childList();
+	auto childIter = childList->begin();
+	//TEST_PRINT << "Child size = " << childSize;
+	for (unsigned int childListSize = 0; childListSize < childList->size() ; childListSize ++, childIter ++)
+	{
+		construct_child(&childListSize);
+		Assert::AreEqual(((Node*)(*childIter))->get_id().c_str(), chId.c_str());
+		Assert::AreEqual(((Node*)(*childIter))->get_tag().c_str(), chTag.c_str());
+		Assert::AreEqual(((Node*)(*childIter))->get_tagContent().c_str(), chTagC.c_str());
+		Assert::IsNotNull(((Node*)(*childIter))->get_root());
+	}
+}
 void construct_child(unsigned int * aCaunter)
 {
 	chTag = "<child" + to_string(*aCaunter) + ">";
