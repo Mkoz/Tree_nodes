@@ -9,6 +9,7 @@ Node::Node(Node* aRoot, string* aTag, string* aTagContent, string* anId) : root_
 
 Node::~Node()
 {
+	PRINT << "Destructor for tag: " << this->get_tag() << endl;
 }
 
 void Node::add_child(Node * aChild)

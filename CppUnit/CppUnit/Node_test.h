@@ -1,19 +1,36 @@
 #pragma once
-
+#include "stdafx.h"
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
 class Node_test :public CppUnit::TestFixture
 {
 	CPPUNIT_TEST_SUITE(Node_test);
-	CPPUNIT_TEST(myTest1);
-	CPPUNIT_TEST(myTest2);
+	CPPUNIT_TEST(checkRoot);
+	CPPUNIT_TEST(checkChilds);
 	CPPUNIT_TEST_SUITE_END();
 public:
 	Node_test();
 	~Node_test();
 	void setUp();
 	void tearDown();
-	void myTest1();
-	void myTest2();
+
+// Test declarations
+	void checkRoot();
+	void checkChilds();
+
+// Service section
+	void create_childs(unsigned int aNumberOfChalds, Node* aRoot);
+	void construct_child(unsigned int * aCaunter);
+
+
+// it has not sence make these vars protected, it just test framework
+// It should nit be published anythere
+	string chTag;
+	string chTagC;
+	string chId;
+	string rootTag;
+	string rootTagC;
+	string rootId;
+
 };

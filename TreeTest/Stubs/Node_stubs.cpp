@@ -4,7 +4,7 @@
 
 Node * CREATE_ROOT()
 {
-	Node* testNode = new Node(NULL, &rootTag, &rootTagC, &rootId);;
+	Node* testNode = new Node(NULL, &rootTag, &rootTagC, &rootId);
 
 	// Check what node have been created
 	Assert::IsNotNull(testNode);
@@ -12,7 +12,7 @@ Node * CREATE_ROOT()
 	return testNode;
 }
 
-Node * CREATE_CHILDS(unsigned int aNumberOfChilds, Node * aRoot)
+void CREATE_CHILDS(unsigned int aNumberOfChilds, Node * aRoot)
 {
 	// Check root exists
 	Assert::IsNotNull(aRoot);
@@ -28,7 +28,6 @@ Node * CREATE_CHILDS(unsigned int aNumberOfChilds, Node * aRoot)
 		Assert::AreEqual(childList->size(), i+1);
 
 	}
-	return nullptr;
 }
 
 void CHECK_ROOT(Node* aNode)

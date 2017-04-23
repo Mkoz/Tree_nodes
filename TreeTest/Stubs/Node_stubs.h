@@ -17,7 +17,7 @@ static string rootId = "root";
 
 //Create section
 Node* CREATE_ROOT();
-Node* CREATE_CHILDS(unsigned int aNumberOfChalds, Node* aRoot);
+void CREATE_CHILDS(unsigned int aNumberOfChalds, Node* aRoot);
 void construct_child(unsigned int * aCaunter);
 
 //Check section
