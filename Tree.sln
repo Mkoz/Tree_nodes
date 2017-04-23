@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Tree", "Tree\Tree.vcxproj", "{AEE544CF-EC2C-419E-A9C6-BB11A1A9E1A7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Node", "Tree\Tree.vcxproj", "{AEE544CF-EC2C-419E-A9C6-BB11A1A9E1A7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TreeTest", "TreeTest\TreeTest.vcxproj", "{0B838E25-C811-4EF2-B5B1-2B06974C5708}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppUnit", "CppUnit\CppUnit\CppUnit.vcxproj", "{381E116C-D6D1-44A6-B27F-20F25A446446}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,6 +33,14 @@ Global
 		{0B838E25-C811-4EF2-B5B1-2B06974C5708}.Release|x64.Build.0 = Release|x64
 		{0B838E25-C811-4EF2-B5B1-2B06974C5708}.Release|x86.ActiveCfg = Release|Win32
 		{0B838E25-C811-4EF2-B5B1-2B06974C5708}.Release|x86.Build.0 = Release|Win32
+		{381E116C-D6D1-44A6-B27F-20F25A446446}.Debug|x64.ActiveCfg = Debug|x64
+		{381E116C-D6D1-44A6-B27F-20F25A446446}.Debug|x64.Build.0 = Debug|x64
+		{381E116C-D6D1-44A6-B27F-20F25A446446}.Debug|x86.ActiveCfg = Debug|Win32
+		{381E116C-D6D1-44A6-B27F-20F25A446446}.Debug|x86.Build.0 = Debug|Win32
+		{381E116C-D6D1-44A6-B27F-20F25A446446}.Release|x64.ActiveCfg = Release|x64
+		{381E116C-D6D1-44A6-B27F-20F25A446446}.Release|x64.Build.0 = Release|x64
+		{381E116C-D6D1-44A6-B27F-20F25A446446}.Release|x86.ActiveCfg = Release|Win32
+		{381E116C-D6D1-44A6-B27F-20F25A446446}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

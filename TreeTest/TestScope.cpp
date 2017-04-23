@@ -3,11 +3,9 @@
 #include "../Tree/Node.h"
 #include "Stubs/Node_stubs.h"
 
-//#pragma comment(lib, "../Tree/Debug/*")
-
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace TreeTest
+namespace NodeTest
 {
 
 	TEST_MODULE_INITIALIZE(ModuleInitializer)
@@ -40,11 +38,9 @@ namespace TreeTest
 			TEST_PRINT << "============ Start =================" << endl;
 			Node* testNode = CREATE_ROOT();
 			CHECK_ROOT(testNode);
-			testNode->print_node();
 			CREATE_CHILDS(8, testNode);
-			testNode->print_node();
 			CHECK_CHILDS(testNode);
-
+			testNode->print_node();
 			TEST_PRINT << "============ END =================" << endl;
 		}
 
