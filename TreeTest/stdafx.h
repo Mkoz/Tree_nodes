@@ -1,15 +1,13 @@
-// stdafx.h: включаемый файл для стандартных системных включаемых файлов,
-// или включаемых файлов для конкретного проекта, которые часто используются, но
-// не часто изменяются
-//
-
+// stdafx.h: Headers list
+// Project "Node" should be associated as link for this proj
 #pragma once
 
 #include "targetver.h"
 #include <iostream>
-// Заголовки CppUnitTest
+
 #include "CppUnitTest.h"
+
 // Redirect cout
 static std::ostringstream out;
 static std::streambuf* orig_buf(std::cout.rdbuf(out.rdbuf()));
-// TODO: Установите здесь ссылки на дополнительные заголовки, требующиеся для программы
+

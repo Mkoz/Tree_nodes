@@ -1,3 +1,4 @@
+//Defs.h: List of definitions for classic CppUnit
 #pragma once
 
 const static string templ_rootTag = "<root>";

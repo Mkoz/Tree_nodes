@@ -1,9 +1,9 @@
+// Node_test.cpp: Main test class realization
 #include "stdafx.h"
 #include "Node_test.h"
 
 Node_test::Node_test() : rootTag("<root>"), rootTagC("Content for root"), rootId("root")
 {
-
 }
 
 
@@ -13,12 +13,10 @@ Node_test::~Node_test()
 
 void Node_test::setUp()
 {
-
 }
 
 void Node_test::tearDown()
 {
-
 }
 
 void Node_test::checkRoot()
@@ -38,7 +36,6 @@ void Node_test::checkChilds()
 
 	auto childList = testRoot->get_childList();
 	auto childIter = childList->begin();
-	//TEST_PRINT << "Child size = " << childSize;
 	for (unsigned int childListSize = 0; childListSize < childList->size(); childListSize++, childIter++)
 	{
 		construct_child(&childListSize);
@@ -60,9 +57,7 @@ void Node_test::create_childs(unsigned int aNumberOfChilds, Node * aRoot)
 	{
 		construct_child(&i);
 		aRoot->add_child(new Node(aRoot, &chTag, &chTagC, &chId));
-
 		CPPUNIT_ASSERT_EQUAL(childList->size(), i + 1);
-
 	}
 }
 

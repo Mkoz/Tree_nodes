@@ -1,3 +1,4 @@
+// Node_stubs.cpp: Stubs realization
 #include "../stdafx.h"
 #include "Node_stubs.h"
 

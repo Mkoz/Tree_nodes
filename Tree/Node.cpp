@@ -1,3 +1,4 @@
+// Node.cpp: Main test class realization
 #include "stdafx.h"
 #include "Node.h"
 

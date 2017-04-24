@@ -1,3 +1,5 @@
+// Node_stubs.h: Stubbed stuff
+
 #pragma once
 #include "../stdafx.h"
 #include "CppUnitTest.h"
@@ -37,16 +39,12 @@ void PRINT_TO_FILE(const T arg)
 
 	out << arg << endl ;
 
-	/*FILE* f = fopen("D:\\C++\\Tree\\test.log", "w");
-	fputs("fputs", f);
-	fclose(f);*/
 };
 
-#define DELETE_LOG_FILE remove(logFile);
-
-// cout redirection for verified object
 #define GET_COUT std::cout.rdbuf(orig_buf);
 #define COUT out.str()
+
+#define DELETE_LOG_FILE remove(logFile);
 
 // Check section
 void CHECK_ROOT(Node* aNode);

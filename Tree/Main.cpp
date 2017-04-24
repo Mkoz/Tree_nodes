@@ -1,5 +1,5 @@
-// Tree.cpp: определяет точку входа для консольного приложения.
-//
+// Main.cpp: main application file
+// It is not used in case compilation as shared lib
 
 #include "stdafx.h"
 #include "Node.h"
@@ -23,7 +23,7 @@ int main()
 		tmpNode->add_child(new Node(tmpNode, &chTag, &chTagC, &chId));
 	}
 	//tmpNode->print_child();
-	tmpNode->print_node();
+	//tmpNode->print_node();
 	system("pause");
 	return 0;
 }

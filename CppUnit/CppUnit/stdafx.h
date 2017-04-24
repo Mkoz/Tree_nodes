@@ -1,8 +1,5 @@
-// stdafx.h: включаемый файл дл€ стандартных системных включаемых файлов
-// или включаемых файлов дл€ конкретного проекта, которые часто используютс€, но
-// не часто измен€ютс€
-//
-
+// stdafx.h: Headers list
+// Project "Node" should be associated as link for this proj
 #pragma once
 
 #include "targetver.h"
@@ -14,5 +11,5 @@
 #include <string>
 #include "Defs.h"
 
-
-// TODO: ”становите здесь ссылки на дополнительные заголовки, требующиес€ дл€ программы
+// Node.lib should be connected to VS soluction for succesfull linking
+#include "Node_test.h"

@@ -1,3 +1,4 @@
+// Node.h: Interface for Node class
 #pragma once
 #include <string>
 #include <vector>
@@ -25,6 +26,7 @@ public:
 
 
 protected:
+// Attributes
 	Node* root_Node;
 	string tag_Node;
 	string tagContent_Node;

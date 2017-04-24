@@ -1,3 +1,4 @@
+// Node_test.h: Interface for Node_test class
 #pragma once
 #include "stdafx.h"
 #include <cppunit/TestFixture.h>

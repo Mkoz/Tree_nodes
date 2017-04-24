@@ -1,9 +1,8 @@
-// CppUnit.cpp: определяет точку входа для консольного приложения.
-//
+// CppUnit.cpp: main application file
+// Dont forget point CppUnit project as autoloaded loaded 
 
 #include "stdafx.h"
 #include <cppunit/ui/text/TestRunner.h>
-#include "Node_test.h"
 
 CPPUNIT_TEST_SUITE_REGISTRATION(Node_test);
 
