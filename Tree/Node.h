@@ -10,7 +10,7 @@ public:
 	Node( Node* aRoot, string* aTag, string* aTagContent, string* anId);
 	~Node();
 
-// Inlile getters to speed up module a bit
+// Inlile getters to speed up the module a bit
 	inline Node* get_root() { return this->root_Node; };
 	inline string get_tag() { return this->tag_Node; };
 	inline string get_tagContent() { return this->tagContent_Node; };
