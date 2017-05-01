@@ -6,7 +6,16 @@
 int main()
 {
 
+	string Tag = "<body>";
+	string TagC = "<AAAAAAAAAAA>";
+	string Id = "root";
+	string ChTag = "<child>";
+	string ChTagC = "<CHILDDDDD";
+	string ChId = "root.child";
 	Tree* myTree = new Tree();
-	//myTree->
+	myTree->add_node_Tr(nullptr, &Tag, &TagC, &Id);
+	auto rootNode = myTree->get_node_by_id_Tr(&Id);
+	myTree->add_node_Tr(rootNode, &ChTag, &ChTagC, &ChId);
+	myTree->print_tree_Tr();
 	return 0;
 }

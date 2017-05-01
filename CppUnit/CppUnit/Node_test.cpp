@@ -21,7 +21,7 @@ void Node_test::tearDown()
 
 void Node_test::checkRoot()
 {
-	Node* testRoot = new Node(NULL, &rootTag, &rootTagC, &rootId);
+	Node* testRoot = new Node(NULL, &rootTag, &rootTagC, &rootId, 0);
 
 	CPPUNIT_ASSERT_EQUAL(testRoot->get_id(), templ_rootId);
 	CPPUNIT_ASSERT_EQUAL(testRoot->get_tag(), templ_rootTag);
@@ -31,7 +31,7 @@ void Node_test::checkRoot()
 
 void Node_test::checkChilds()
 {
-	Node* testRoot = new Node(NULL, &rootTag, &rootTagC, &rootId);
+	Node* testRoot = new Node(NULL, &rootTag, &rootTagC, &rootId, 0);
 	create_childs(1000, testRoot);
 
 	auto childList = testRoot->get_childList();
@@ -56,7 +56,7 @@ void Node_test::create_childs(unsigned int aNumberOfChilds, Node * aRoot)
 	for (unsigned int i = 0; i < aNumberOfChilds; i++)
 	{
 		construct_child(&i);
-		aRoot->add_child(new Node(aRoot, &chTag, &chTagC, &chId));
+		aRoot->add_child(new Node(aRoot, &chTag, &chTagC, &chId, 0));
 		CPPUNIT_ASSERT_EQUAL(childList->size(), i + 1);
 	}
 }

@@ -5,7 +5,7 @@
 
 Node * CREATE_ROOT()
 {
-	Node* testNode = new Node(NULL, &rootTag, &rootTagC, &rootId);
+	Node* testNode = new Node(NULL, &rootTag, &rootTagC, &rootId, 0);
 
 	// Check what node have been created
 	Assert::IsNotNull(testNode);
@@ -24,7 +24,7 @@ void CREATE_CHILDS(unsigned int aNumberOfChilds, Node * aRoot)
 	for (unsigned int i = 0; i < aNumberOfChilds; i++)
 	{
 		construct_child(&i);
-		aRoot->add_child(new Node(aRoot, &chTag, &chTagC, &chId));
+		aRoot->add_child(new Node(aRoot, &chTag, &chTagC, &chId, 0));
 
 		Assert::AreEqual(childList->size(), i+1);
 
