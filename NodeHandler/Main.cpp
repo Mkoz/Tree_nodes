@@ -10,7 +10,7 @@ int main()
 	string TagC = "<AAAAAAAAAAA>";
 	string Id = "root";
 	string ChTag = "<child>";
-	string ChTagC = "<CHILDDDDD";
+	string ChTagC = "<CHILDDDDD>";
 	string ChId = "root.child";
 	Tree* myTree = new Tree();
 	myTree->add_node_Tr(nullptr, &Tag, &TagC, &Id);

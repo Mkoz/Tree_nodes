@@ -17,6 +17,8 @@ public:
 	void print_tree_Tr();
 	void print_node_Tr();
 
+	string create_id_Tr(Node* aRoot, string aTag);
+
 private:
 	//vector<Node*> node_list_NH;
 	vector<vector<Node>> level_container_Tr;

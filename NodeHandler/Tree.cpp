@@ -37,8 +37,8 @@ bool Tree::add_node_Tr(Node* aRoot,string *aTag, string *aTagC, string *anId)
 			//level_container_Tr does not contain current level yet.
 			level_container_Tr.push_back(vector<Node>());
 		}
-
-		level_container_Tr[rootLevel + 1].push_back(Node(aRoot, aTag, aTagC, anId, rootLevel+1 ));
+		auto id = create_id_Tr(aRoot, *aTag);
+		level_container_Tr[rootLevel + 1].push_back(Node(aRoot, aTag, aTagC, &id, rootLevel+1 ));
 	}
 
 	return true;
@@ -71,4 +71,24 @@ void Tree::print_tree_Tr()
 			iter->print_node();
 		}
 	}
+}
+
+string Tree::create_id_Tr(Node* aRoot, string aTag)
+{
+	// Id looks like root.tag<number of repeats on level>.tag<number of repeats on level>
+	aTag.erase(aTag.find('<'), 1);
+	aTag.erase(aTag.find('>'), 1);
+	string theId = aRoot->get_id() + "." + aTag;
+	unsigned int numberOfRepeats = 0;
+	for (auto iter = level_container_Tr[aRoot->get_level() + 1].begin(); iter != level_container_Tr[aRoot->get_level() + 1].end(); iter++)
+	{
+		if ( aTag == iter->get_tag())
+		{
+			numberOfRepeats++ ;
+		}
+	}
+
+	theId = theId + to_string(numberOfRepeats);
+	PRINT << theId << endl;
+	return theId;
 }
