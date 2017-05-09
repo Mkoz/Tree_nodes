@@ -8,11 +8,12 @@ class Tree
 public:
 	Tree();
 	~Tree();
-	bool add_node_Tr(Node* aRoot, string *aTag, string *aTagC, string *anId);
+	bool add_node_Tr(Node* aRoot, string *aTag, string *aTagC);
 	bool remove_node_Tr();
 
 	Node* get_node_by_id_Tr(string* anId);
-	vector<vector<Node>*>* get_level_container_Tr();
+	inline vector<vector<Node*>>* get_level_container_Tr() { return &level_container_Tr; };
+	inline Node* get_root_Tr() { return *(get_level_container_Tr()->begin()->begin()); };
 
 	void print_tree_Tr();
 	void print_node_Tr();
@@ -21,7 +22,8 @@ public:
 
 private:
 	//vector<Node*> node_list_NH;
-	vector<vector<Node>> level_container_Tr;
+	vector<vector<Node *>> level_container_Tr;
+	void remove_symbol(string * aTag, string aSymbol);
 /*
 	level_container_NH(lvl_0, level_1, level_2, ..)
 	lvl 0	N

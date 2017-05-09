@@ -33,6 +33,12 @@ protected:
 	string tagContent_Node;
 	string id_Node;
 	vector<Node*> childList_Node;
+
 	unsigned int level_Node;
 };
+
+	struct childs_Node {
+		int child_level;
+		int child_position;
+	};
 

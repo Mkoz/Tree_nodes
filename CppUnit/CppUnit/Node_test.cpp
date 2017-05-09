@@ -36,7 +36,7 @@ void Node_test::checkChilds()
 
 	auto childList = testRoot->get_childList();
 	auto childIter = childList->begin();
-	for (unsigned int childListSize = 0; childListSize < childList->size(); childListSize++, childIter++)
+	for (unsigned int childListSize = 0; childListSize < childList->size(); childListSize++, childIter++, &chTag, &chTagC, &chId)
 	{
 		construct_child(&childListSize);
 		CPPUNIT_ASSERT_EQUAL(((Node*)(*childIter))->get_id(), chId);
@@ -46,27 +46,4 @@ void Node_test::checkChilds()
 	}
 
 }
-
-void Node_test::create_childs(unsigned int aNumberOfChilds, Node * aRoot)
-{
-	// Check root exists
-	CPPUNIT_ASSERT( aRoot != nullptr);
-	vector<Node*>* childList = aRoot->get_childList();
-
-	for (unsigned int i = 0; i < aNumberOfChilds; i++)
-	{
-		construct_child(&i);
-		aRoot->add_child(new Node(aRoot, &chTag, &chTagC, &chId, 0));
-		CPPUNIT_ASSERT_EQUAL(childList->size(), i + 1);
-	}
-}
-
-void Node_test::construct_child(unsigned int * aCaunter)
-{
-	chTag = "<child" + to_string(*aCaunter) + ">";
-	chTagC = "for child<" + to_string(*aCaunter) + ">";
-	chId = "root.child" + to_string(*aCaunter);
-}
-
-
 

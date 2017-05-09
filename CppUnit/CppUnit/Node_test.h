@@ -4,6 +4,7 @@
 #include <cppunit/TestFixture.h>
 #include <cppunit/extensions/HelperMacros.h>
 
+
 class Node_test :public CppUnit::TestFixture
 {
 	CPPUNIT_TEST_SUITE(Node_test);
@@ -21,8 +22,7 @@ public:
 	void checkChilds();
 
 // Service section
-	void create_childs(unsigned int aNumberOfChalds, Node* aRoot);
-	void construct_child(unsigned int * aCaunter);
+
 
 
 // it has not sence make these vars protected, it just test framework

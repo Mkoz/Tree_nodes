@@ -6,11 +6,15 @@ Node::Node(Node* aRoot, string* aTag, string* aTagContent, string* anId, unsigne
 {
 	PRINT << "Constructor for tag: " << this->get_tag() << endl;
 	childList_Node = vector<Node*>();
+	if (aRoot != nullptr)
+	{
+		aRoot->add_child(this);
+	}
 }
 
 Node::~Node()
 {
-	PRINT << "Destructor for tag: " << this->get_tag() << endl;
+	PRINT << "Destructor for tag: " << this->get_tag() << " : " << this<< endl;
 }
 
 void Node::add_child(Node * aChild)
@@ -22,7 +26,7 @@ void Node::print_child()
 {
 	for (auto it = childList_Node.begin(); it != childList_Node.end(); it++)
 	{
-		PRINT << this->get_id() << " - Child: " << *it << " + " << ((Node*)*it)->get_id() << endl;
+		PRINT << this->get_id() << " - Child: " << *it << endl;
 	}
 }
 

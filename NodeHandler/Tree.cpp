@@ -7,38 +7,37 @@
 using namespace std;
 Tree::Tree():level_container_Tr(NULL)
 {
-	PRINT << "size: " << level_container_Tr.size() << endl;
+
 }
 
-bool Tree::add_node_Tr(Node* aRoot,string *aTag, string *aTagC, string *anId)
+bool Tree::add_node_Tr(Node* aRoot,string *aTag, string *aTagC)
 {
 	auto levelSize = level_container_Tr.size();
+	string id;
 	if ( levelSize == 0 )
 	{
-		PRINT << "Root case" << endl;
-		//vector<Node> tmpNode(nullptr, aTag, aTagC, anId);
-		level_container_Tr.push_back(vector<Node>());
-		PRINT << "Root case size: " << level_container_Tr[0].size() << endl;
-		level_container_Tr[0].push_back(Node(nullptr, aTag, aTagC, anId, 0));
-		//.push_back((nullptr, aTag, aTagC, anId)))
+
+		level_container_Tr.push_back(vector<Node*>());
+		id = create_id_Tr(nullptr, *aTag);
+		level_container_Tr[0].push_back(new Node(nullptr, aTag, aTagC, &id, 0));
 	} else {
-		PRINT << "Not root case" << endl;
-		PRINT << "Not root case size: " << level_container_Tr.size() << endl;
-		auto rootLevel = aRoot->get_level();
-		PRINT << "Not root case. Size: " << levelSize << " level: " << rootLevel << endl;
-		auto delta = levelSize - rootLevel;
-		if ( delta >= 2)
+		if ( aRoot == nullptr)
 		{
-			PRINT_ERROR << "Previous level has been missed. Level: " << rootLevel << " Size: " << levelSize << endl;
+			PRINT_ERROR << "Root already exists, Node* must be pointed as a root" << endl;
+			return false;
+		}
+		auto rootLevel = aRoot->get_level();
+		auto delta = levelSize - rootLevel;
+		if ( delta > 2)
+		{
 			return false;
 		}
 		if (delta == 1)
 		{
-			//level_container_Tr does not contain current level yet.
-			level_container_Tr.push_back(vector<Node>());
+			level_container_Tr.push_back(vector<Node*>());
 		}
-		auto id = create_id_Tr(aRoot, *aTag);
-		level_container_Tr[rootLevel + 1].push_back(Node(aRoot, aTag, aTagC, &id, rootLevel+1 ));
+		id = create_id_Tr(aRoot, *aTag);
+		level_container_Tr[rootLevel + 1].push_back(new Node(aRoot, aTag, aTagC, &id, rootLevel+1 ));
 	}
 
 	return true;
@@ -47,13 +46,13 @@ bool Tree::add_node_Tr(Node* aRoot,string *aTag, string *aTagC, string *anId)
 Node * Tree::get_node_by_id_Tr(string* anId)
 {
 	unsigned int counter = 0;
-	for (vector<vector<Node>>::iterator it = level_container_Tr.begin(); it != level_container_Tr.end(); it++, counter++)
+	for (vector<vector<Node*>>::iterator it = level_container_Tr.begin(); it != level_container_Tr.end(); it++, counter++)
 	{
 		for (auto iter = level_container_Tr[counter].begin(); iter != level_container_Tr[counter].end(); iter++)
 		{
-			if (iter->get_id() == *anId)
+			if ((*iter)->get_id() == *anId)
 			{
-				return &*iter;
+				return *iter;
 			}
 		}
 	}
@@ -63,32 +62,52 @@ Node * Tree::get_node_by_id_Tr(string* anId)
 void Tree::print_tree_Tr()
 {
 	unsigned int counter = 0;
-	for (vector<vector<Node>>::iterator it = level_container_Tr.begin(); it != level_container_Tr.end(); it++, counter++ )
+	for (vector<vector<Node*>>::iterator it = level_container_Tr.begin(); it != level_container_Tr.end(); it++, counter++ )
 	{
 		PRINT << "================ LEVEL " << counter << "=====================" << endl;
 		for (auto iter = level_container_Tr[counter].begin(); iter != level_container_Tr[counter].end(); iter++)
 		{
-			iter->print_node();
+			(*iter)->print_node();
 		}
 	}
 }
 
 string Tree::create_id_Tr(Node* aRoot, string aTag)
 {
-	// Id looks like root.tag<number of repeats on level>.tag<number of repeats on level>
-	aTag.erase(aTag.find('<'), 1);
-	aTag.erase(aTag.find('>'), 1);
-	string theId = aRoot->get_id() + "." + aTag;
-	unsigned int numberOfRepeats = 0;
-	for (auto iter = level_container_Tr[aRoot->get_level() + 1].begin(); iter != level_container_Tr[aRoot->get_level() + 1].end(); iter++)
+// Id looks like root.tag<number of repeats on level>.tag<number of repeats on level>
+
+	string theId;
+	if (aRoot == nullptr)
 	{
-		if ( aTag == iter->get_tag())
+		remove_symbol(&aTag, "<");
+		remove_symbol(&aTag, ">");
+		theId = aTag;
+		return theId;
+	}
+
+	unsigned int numberOfRepeats = 0;
+
+	for (auto iter = aRoot->get_childList()->begin(); iter != aRoot->get_childList()->end(); iter++)
+	{
+		if (aTag == (*iter)->get_tag())
 		{
-			numberOfRepeats++ ;
+			numberOfRepeats++;
 		}
 	}
 
-	theId = theId + to_string(numberOfRepeats);
-	PRINT << theId << endl;
+	remove_symbol(&aTag, "<");
+	remove_symbol(&aTag, ">");
+	theId = aRoot->get_id() + "." + aTag + to_string(numberOfRepeats);
+
 	return theId;
+}
+
+void Tree::remove_symbol(string * aTag, string aSymbol)
+{
+	auto position = aTag->find(aSymbol);
+
+	if (position != string::npos)
+	{
+		aTag->erase(position, 1);
+	}
 }

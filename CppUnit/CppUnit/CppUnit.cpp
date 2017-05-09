@@ -1,10 +1,11 @@
 // CppUnit.cpp: main application file
-// Dont forget point CppUnit project as autoloaded loaded 
+// Dont forget point CppUnit project as autoloaded loaded
 
 #include "stdafx.h"
 #include <cppunit/ui/text/TestRunner.h>
 
-CPPUNIT_TEST_SUITE_REGISTRATION(Node_test);
+//CPPUNIT_TEST_SUITE_REGISTRATION(Node_test);
+CPPUNIT_TEST_SUITE_REGISTRATION(Tree_test);
 
 int main()
 {

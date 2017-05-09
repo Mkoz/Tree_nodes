@@ -13,9 +13,9 @@ int main()
 	string ChTagC = "<CHILDDDDD>";
 	string ChId = "root.child";
 	Tree* myTree = new Tree();
-	myTree->add_node_Tr(nullptr, &Tag, &TagC, &Id);
+	myTree->add_node_Tr(nullptr, &Tag, &TagC);
 	auto rootNode = myTree->get_node_by_id_Tr(&Id);
-	myTree->add_node_Tr(rootNode, &ChTag, &ChTagC, &ChId);
+	myTree->add_node_Tr(rootNode, &ChTag, &ChTagC);
 	myTree->print_tree_Tr();
 	return 0;
 }
