@@ -7,9 +7,21 @@
 using namespace std;
 Tree::Tree():level_container_Tr(NULL)
 {
-
 }
 
+Tree::~Tree()
+{
+	if (level_container_Tr.size() > 0)
+	{
+		for (auto iter = level_container_Tr.begin(); iter != level_container_Tr.end(); iter++)
+		{
+			for (auto itForRemoval = iter->begin(); itForRemoval != iter->end(); itForRemoval++)
+			{
+				delete *itForRemoval;
+			}
+		}
+	}
+}
 bool Tree::add_node_Tr(Node* aRoot,string *aTag, string *aTagC)
 {
 	auto levelSize = level_container_Tr.size();
