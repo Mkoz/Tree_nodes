@@ -12,6 +12,7 @@ class Tree_test :public CppUnit::TestFixture
 	CPPUNIT_TEST(create_second_root);
 	CPPUNIT_TEST(remove_root);
 	CPPUNIT_TEST(remove_childs);
+	CPPUNIT_TEST(check_get_node_by_id_tr);
 	CPPUNIT_TEST_SUITE_END();
 public:
 	Tree_test();
@@ -25,6 +26,7 @@ public:
 	void create_a_lot_of_childs_with_the_same_tag();
 	void remove_root();
 	void remove_childs();
+	void check_get_node_by_id_tr();
 
 	//Erro cases
 	void create_second_root();

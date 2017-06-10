@@ -35,7 +35,7 @@ void Node_test::checkRoot()
 void Node_test::checkChilds()
 {
 	Node* testRoot = new Node(NULL, &rootTag, &rootTagC, &rootId, 0);
-	create_childs(10, testRoot);
+	create_childs(1000, testRoot);
 
 	auto childList = testRoot->get_childList();
 	auto childIter = childList->begin();

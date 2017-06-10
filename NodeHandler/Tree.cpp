@@ -41,15 +41,16 @@ bool Tree::add_node_Tr(Node* aRoot,string *aTag, string *aTagC)
 		}
 		auto rootLevel = aRoot->get_level();
 		auto delta = levelSize - rootLevel;
-		if ( delta > 2)
-		{
-			return false;
-		}
+
 		if (delta == 1)
 		{
 			level_container_Tr.push_back(vector<Node*>());
 		}
+		else if (delta < 1) {
+			PRINT_ERROR << "Incorrect root level: " << rootLevel << " . There are only: " <<  levelSize << " levels in container" << endl;
+		}
 		id = create_id_Tr(aRoot, *aTag);
+
 		level_container_Tr[rootLevel + 1].push_back(new Node(aRoot, aTag, aTagC, &id, rootLevel+1 ));
 	}
 
@@ -57,6 +58,38 @@ bool Tree::add_node_Tr(Node* aRoot,string *aTag, string *aTagC)
 }
 
 Node * Tree::get_node_by_id_Tr(string* anId)
+{
+	unsigned int counter = 0;
+	for (vector<vector<Node*>>::iterator it = level_container_Tr.begin(); it != level_container_Tr.end(); it++, counter++)
+	{
+		for (auto iter = level_container_Tr[counter].begin(); iter != level_container_Tr[counter].end(); iter++)
+		{
+			if ((*iter)->get_id() == *anId)
+			{
+				return *iter;
+			}
+		}
+	}
+	return nullptr;
+}
+
+Node * Tree::get_node_by_number_Tr(string* anId)
+{
+	unsigned int counter = 0;
+	for (vector<vector<Node*>>::iterator it = level_container_Tr.begin(); it != level_container_Tr.end(); it++, counter++)
+	{
+		for (auto iter = level_container_Tr[counter].begin(); iter != level_container_Tr[counter].end(); iter++)
+		{
+			if ((*iter)->get_id() == *anId)
+			{
+				return *iter;
+			}
+		}
+	}
+	return nullptr;
+}
+
+Node * Tree::get_nodes_by_tag_Tr(string* anId)
 {
 	unsigned int counter = 0;
 	for (vector<vector<Node*>>::iterator it = level_container_Tr.begin(); it != level_container_Tr.end(); it++, counter++)

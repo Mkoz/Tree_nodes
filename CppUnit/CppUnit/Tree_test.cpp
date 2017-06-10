@@ -105,6 +105,25 @@ Tree* Tree_test::create_Tree_with_root()
 	return testRoot;
 }
 
+void Tree_test::check_get_node_by_id_tr()
+{
+	Tree* testRoot = create_Tree_with_root();
+	auto numberOfLevels = 2;
+
+	Tree_create_childs(testRoot, numberOfLevels);
+	string tagForCheck = "<BlaBla Tag>";
+	string idToInsert = "root";
+	string idForCheck = idToInsert + "." + "BlaBla Tag" + "0";
+	string contentForCheck = "Content for check";
+	auto nodeRoot = testRoot->get_node_by_id_Tr(&idToInsert);
+	CPPUNIT_ASSERT(nodeRoot);
+	CPPUNIT_ASSERT_EQUAL(nodeRoot->get_id(), idToInsert);
+	testRoot->add_node_Tr(nodeRoot, &tagForCheck, &contentForCheck);
+	auto testNode = testRoot->get_node_by_id_Tr(&idForCheck);
+	CPPUNIT_ASSERT(testNode);
+	CPPUNIT_ASSERT_EQUAL(testNode->get_id(), idForCheck);
+}
+
 
 
 
