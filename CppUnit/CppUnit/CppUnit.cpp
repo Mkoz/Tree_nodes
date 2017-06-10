@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include <cppunit/ui/text/TestRunner.h>
 
-//CPPUNIT_TEST_SUITE_REGISTRATION(Node_test);
+CPPUNIT_TEST_SUITE_REGISTRATION(Node_test);
 CPPUNIT_TEST_SUITE_REGISTRATION(Tree_test);
 
 int main()

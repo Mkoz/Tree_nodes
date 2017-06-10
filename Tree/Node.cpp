@@ -4,7 +4,7 @@
 
 Node::Node(Node* aRoot, string* aTag, string* aTagContent, string* anId, unsigned int aLevel) : root_Node(aRoot), tag_Node(*aTag), tagContent_Node(*aTagContent), id_Node(*anId), level_Node(aLevel)
 {
-	PRINT << "Constructor for tag: " << this->get_tag() << endl;
+	//PRINT << "Constructor for tag: " << this->get_tag() << endl;
 	childList_Node = vector<Node*>();
 	if (aRoot != nullptr)
 	{
@@ -14,7 +14,7 @@ Node::Node(Node* aRoot, string* aTag, string* aTagContent, string* anId, unsigne
 
 Node::~Node()
 {
-	PRINT << "Destructor for tag: " << this->get_tag() << " : " << this<< endl;
+	//PRINT << "Destructor for tag: " << this->get_tag() << " : " << this<< endl;
 }
 
 void Node::add_child(Node * aChild)

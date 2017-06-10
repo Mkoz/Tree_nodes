@@ -14,17 +14,28 @@ void create_childs(unsigned int aNumberOfChilds, Node * aRoot)
 
 	for (unsigned int i = 0; i < aNumberOfChilds; i++)
 	{
-		construct_child(&i);
-		aRoot->add_child(new Node(aRoot, &chTag, &chTagC, &chId, 0));
-		CPPUNIT_ASSERT_EQUAL(childList->size(), i + 1);
+		auto theTag = construct_child_Tag(&i);
+		auto theTagC = construct_child_TagC(&i);
+		auto theId = construct_child_Id(&i);
+		new Node(aRoot, &theTag, &theTagC, &theId, 0);
 	}
+
+	CPPUNIT_ASSERT_EQUAL(childList->size(), aNumberOfChilds);
 }
 
-void construct_child(unsigned int* aCaunter)
+string construct_child_Tag(unsigned int* aCaunter)
 {
-	chTag = "<child" + to_string(*aCaunter) + ">";
-	chTagC = "for child<" + to_string(*aCaunter) + ">";
-	chId = "root.child" + to_string(*aCaunter);
+	return	"<child" + to_string(*aCaunter) + ">";
+}
+
+string construct_child_TagC(unsigned int* aCaunter)
+{
+	return "for child<" + to_string(*aCaunter) + ">";
+}
+
+string construct_child_Id(unsigned int* aCaunter)
+{
+	return "root.child" + to_string(*aCaunter);
 }
 
 void Tree_create_childs(Tree * aTree, unsigned int aNumberOfLevels)

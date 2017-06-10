@@ -22,6 +22,7 @@ Tree::~Tree()
 		}
 	}
 }
+
 bool Tree::add_node_Tr(Node* aRoot,string *aTag, string *aTagC)
 {
 	auto levelSize = level_container_Tr.size();
@@ -122,4 +123,25 @@ void Tree::remove_symbol(string * aTag, string aSymbol)
 	{
 		aTag->erase(position, 1);
 	}
+}
+
+bool Tree::remove_node_Tr(Node* aNode)
+{
+	auto theLevel = aNode->get_level();
+	for (auto iter = level_container_Tr.at(theLevel).begin(); iter != level_container_Tr.at(theLevel).end(); iter++)
+	{
+		if (aNode->get_id() == (*iter)->get_id())
+		{
+			level_container_Tr.at(theLevel).erase(iter);
+			//PRINT << "Remove: " << level_container_Tr.at(theLevel).size() << endl;
+			delete aNode;
+			if (level_container_Tr.at(theLevel).size() == 0)
+			{
+				level_container_Tr.erase(level_container_Tr.begin() + theLevel);
+			}
+			return true;
+		}
+	}
+
+	return false;
 }

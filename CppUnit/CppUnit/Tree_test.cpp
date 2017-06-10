@@ -57,6 +57,35 @@ void Tree_test::create_a_lot_of_childs_with_the_same_tag()
 	//testRoot->print_tree_Tr();
 }
 
+void Tree_test::remove_root()
+{
+	Tree* testRoot = create_Tree_with_root();
+	CPPUNIT_ASSERT(testRoot->remove_node_Tr(testRoot->get_root_Tr()));
+	CPPUNIT_ASSERT(testRoot->get_level_container_Tr()->size() == 0);
+}
+
+void Tree_test::remove_childs()
+{
+	Tree* testRoot = create_Tree_with_root();
+
+	Tree_create_childs(testRoot, 3);
+
+	while (testRoot->get_level_container_Tr()->size())
+	{
+		auto initialSize = testRoot->get_level_container_Tr()->size();
+		auto theLevel = testRoot->get_level_container_Tr()->rbegin();
+		while (initialSize == testRoot->get_level_container_Tr()->size())
+		{
+			auto theLastNode = theLevel->rbegin();
+			//PRINT << "Level size: " << theLevel->size() << endl;
+			CPPUNIT_ASSERT(testRoot->remove_node_Tr(*theLastNode));
+
+		}
+	}
+	CPPUNIT_ASSERT(testRoot->get_level_container_Tr()->size() == 0);
+
+}
+
 void Tree_test::create_second_root()
 {
 	Tree* testRoot = create_Tree_with_root();

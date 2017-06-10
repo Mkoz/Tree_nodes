@@ -1,6 +1,9 @@
 // Node_test.cpp: Main test class realization
 #include "stdafx.h"
 #include "Node_test.h"
+extern string chTag;
+extern string chTagC;
+//extern string chId;
 
 Node_test::Node_test() : rootTag("<root>"), rootTagC("Content for root"), rootId("root")
 {
@@ -32,16 +35,15 @@ void Node_test::checkRoot()
 void Node_test::checkChilds()
 {
 	Node* testRoot = new Node(NULL, &rootTag, &rootTagC, &rootId, 0);
-	create_childs(1000, testRoot);
+	create_childs(10, testRoot);
 
 	auto childList = testRoot->get_childList();
 	auto childIter = childList->begin();
-	for (unsigned int childListSize = 0; childListSize < childList->size(); childListSize++, childIter++, &chTag, &chTagC, &chId)
+	for (unsigned int childListSize = 0; childListSize < childList->size(); childListSize++, childIter++)
 	{
-		construct_child(&childListSize);
-		CPPUNIT_ASSERT_EQUAL(((Node*)(*childIter))->get_id(), chId);
-		CPPUNIT_ASSERT_EQUAL(((Node*)(*childIter))->get_tag(), chTag);
-		CPPUNIT_ASSERT_EQUAL(((Node*)(*childIter))->get_tagContent(), chTagC);
+		CPPUNIT_ASSERT_EQUAL(((Node*)(*childIter))->get_id(), construct_child_Id(&childListSize));
+		CPPUNIT_ASSERT_EQUAL(((Node*)(*childIter))->get_tag(), construct_child_Tag(&childListSize));
+		CPPUNIT_ASSERT_EQUAL(((Node*)(*childIter))->get_tagContent(), construct_child_TagC(&childListSize));
 		CPPUNIT_ASSERT(((Node*)(*childIter))->get_root() != nullptr);
 	}
 

@@ -18,8 +18,7 @@ public:
 	inline unsigned int get_level() { return this->level_Node; };
 	inline vector<Node*>* get_childList() { return &(this->childList_Node); };
 
-// Setter definitions
-	void add_child(Node* aChild);
+
 
 // Print definitions
 	void print_child();
@@ -34,6 +33,7 @@ protected:
 	string id_Node;
 	vector<Node*> childList_Node;
 
+	void add_child(Node* aChild);
 	unsigned int level_Node;
 };
 

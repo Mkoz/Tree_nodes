@@ -9,7 +9,7 @@ public:
 	Tree();
 	~Tree();
 	bool add_node_Tr(Node* aRoot, string *aTag, string *aTagC);
-	bool remove_node_Tr();
+	bool remove_node_Tr(Node* aNode);
 
 	Node* get_node_by_id_Tr(string* anId);
 	inline vector<vector<Node*>>* get_level_container_Tr() { return &level_container_Tr; };

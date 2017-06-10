@@ -8,8 +8,10 @@ class Tree_test :public CppUnit::TestFixture
 {
 	CPPUNIT_TEST_SUITE(Tree_test);
 	CPPUNIT_TEST(checkRoot);
-	CPPUNIT_TEST(checkChilds);
+	CPPUNIT_TEST(create_a_lot_of_childs_with_the_same_tag);
 	CPPUNIT_TEST(create_second_root);
+	CPPUNIT_TEST(remove_root);
+	CPPUNIT_TEST(remove_childs);
 	CPPUNIT_TEST_SUITE_END();
 public:
 	Tree_test();
@@ -21,9 +23,12 @@ public:
 	// Normal cases
 	void checkRoot();
 	void create_a_lot_of_childs_with_the_same_tag();
+	void remove_root();
+	void remove_childs();
 
 	//Erro cases
 	void create_second_root();
+	void remove_not_existed_node();
 
 	// it has not sence make these vars protected, it just test framework
 	// It should nit be published anythere
